@@ -7,8 +7,8 @@ function timerStart() {
 
     if (number == 0) {
         alert('Вы победили в конкурсе!');
-        location.reload();
+        clearInterval(inervalID);
     } 
 }
 
-setInterval(timerStart, 1000);
+let inervalID = setInterval(timerStart, 1000);
