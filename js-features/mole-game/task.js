@@ -20,9 +20,9 @@ function getHole() {
 
     if (deadHole.textContent > 9) {
         alert('Победа!');
-        location.reload();
+        // location.reload();
     } else if (lostHole.textContent > 4) {
         alert('Поражение:(');
-        location.reload();
+        // location.reload();
     }
 }
