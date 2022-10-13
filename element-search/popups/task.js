@@ -1,29 +1,16 @@
-const popupLoad = document.querySelector("#modal_main");
-const wellDone = document.querySelector("#modal_success");
-const doWell = document.querySelector(".show-success");
-const closeModal = document.querySelectorAll(".modal__close_times");
+const modalMain = document.querySelector('#modal_main');
+modalMain.classList.add('modal_active');
 
-function showPopup() {
-    popupLoad.classList.add("modal_active");
-  }
+const modalCloses = Array.from(document.querySelectorAll('div.modal__close'));
+modalCloses.forEach((item) => {
+  item.onclick = () => {
+    item.closest('.modal').classList.remove('modal_active');
+  };
+});
 
-function closePopup() {
-    for (let i = 0; i < closeModal.length; i++) {
-        let eachClose = closeModal[i];
-
-        let closeFunc = () => {
-            wellDone.style.display = "none";
-            popupLoad.style.display = "none";
-        };
-
-        eachClose.onclick = closeFunc;
-    }
-}
-
-doWell.onclick  = function successOpen() {
-    popupLoad.className = "modal";
-    wellDone.className = "modal modal_active";
+const modalSuccess = document.getElementById('modal_success');
+const showSuccess = modalMain.querySelector('.show-success');
+showSuccess.onclick = () => {
+  modalMain.classList.remove('modal_active');
+  modalSuccess.classList.add('modal_active');
 };
-
-showPopup();
-closePopup();
